@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse("hello!")
+    return render(request, "hello/index.html")
 
 def brian(request): 
     return HttpResponse("Hello brian!")
@@ -12,4 +12,6 @@ def david(request):
     return HttpResponse("Hello david!")
 
 def greet(request, name): 
-    return HttpResponse(f"Hello, {name}")
+    return render(request, "hello/greet.html", {
+         "name": name.capitalize()
+    })
